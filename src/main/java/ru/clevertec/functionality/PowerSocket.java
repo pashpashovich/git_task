@@ -4,6 +4,7 @@ import ru.clevertec.exceptions.PowerException;
 import ru.clevertec.models.ElectricalAppliance;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class PowerSocket implements P_Socket {
     public static ArrayList<ElectricalAppliance> appliances;
@@ -60,7 +61,7 @@ public class PowerSocket implements P_Socket {
         return sortedAppliances;
     }
 
-    public ArrayList<ElectricalAppliance> findApplianceByPowerRange(int minPower, int maxPower) {
+    public Optional<ArrayList<ElectricalAppliance>> findApplianceByPowerRange(int minPower, int maxPower) {
         ArrayList<ElectricalAppliance> powers=new ArrayList<>();
         for (ElectricalAppliance appliance : appliances) {
             double power = appliance.getPower();
@@ -68,7 +69,7 @@ public class PowerSocket implements P_Socket {
                 powers.add(appliance);
             }
         }
-        if(powers.isEmpty()) return null;
-        else return powers;
+        if(powers.isEmpty()) return Optional.empty();
+        else return Optional.of(powers);
     }
 }
