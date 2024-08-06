@@ -17,4 +17,21 @@ public class Main {
         filtres.add("Класс");
         Scanner scanner;
     }
+
+    private static String name() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите название: ");
+        return scanner.next();
+    }
+
+    private static void out(ArrayList arrayList) {
+        if (arrayList.isEmpty()) // если нет добавленных электроприборов
+            System.out.println("Электроприборы не найдены(");
+        else {
+            System.out.println("Электроприборы:");
+            for (int i = 0; i < arrayList.size(); i++) {  // выводим добавленные электроприборы
+                System.out.println((i + 1) + "." + arrayList.get(i).getClass() + " " + arrayList.get(i));
+            }
+        }
+    }
 }
