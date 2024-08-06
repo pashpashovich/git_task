@@ -10,8 +10,6 @@ public class Serialization {
         try (FileOutputStream fileOutputStream = new FileOutputStream("Electrical appliances"); ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
             objectOutputStream.writeObject(arrayList);
             System.out.println("Данные записаны в файл!");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -25,9 +23,7 @@ public class Serialization {
             return (ArrayList<ElectricalAppliance>) objectInputStream.readObject();
         } catch (FileNotFoundException ex) {
             System.out.println("Файл не найден");
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             throw new RuntimeException(ex);
         }
         return new ArrayList<>();
