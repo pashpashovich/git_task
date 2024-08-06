@@ -2,7 +2,7 @@ package ru.clevertec.models;
 
 public class Fridge extends ElectricalAppliance {
     private double temperature; // температура холодильника
-    public Fridge(String name, double power,double temperature) { // конструктор
+    public Fridge(String name, double power, double temperature) { // конструктор
         super(name, power);
         this.temperature=temperature;
     }
