@@ -3,7 +3,7 @@ package ru.clevertec.models;
 import java.io.Serializable;
 
 public abstract class ElectricalAppliance implements Serializable {
-    private final String name;
+    private String name;
     private final double power;
 
     public ElectricalAppliance(String  name, double power) {
@@ -25,8 +25,9 @@ public abstract class ElectricalAppliance implements Serializable {
     @Override
     public String toString() {
 
-        return "Электроприбор: " + name + ", Мощность: " + power + " ватт";
+        return "Название электроприбора: " + name + ", Мощность: " + power + " ватт";
     }
+
     @Override
     public boolean equals(Object obj) {
         final ElectricalAppliance other = (ElectricalAppliance) obj;
