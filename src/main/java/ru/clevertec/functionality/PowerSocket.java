@@ -51,7 +51,7 @@ public class PowerSocket implements P_Socket {
         for (ElectricalAppliance appliance : appliances) {
             totalPower += appliance.getPower();
         }
-        if (totalPower>3520) throw new PowerException(totalPower-addedPower,"Электрическая система не выдерживает нагрузки...Мощность на данный момент составляет ");
+        if (totalPower>10000) throw new PowerException(totalPower-addedPower,"Электрическая система не выдерживает нагрузки...Мощность на данный момент составляет ");
         return totalPower;
     }
 
