@@ -18,8 +18,8 @@ public class PowerSocket implements P_Socket {
     {
         if (appliances.isEmpty()) System.out.println("Нет приборов, включённых в сеть");
         else {
-            for (int i = 0; i < appliances.size(); i++) {
-                System.out.println((i + 1) + "." + appliances.get(i));
+            for (int i = 1; i <= appliances.size(); i++) {
+                System.out.println(i + "." + appliances.get(i-1));
             }
         }
     }
