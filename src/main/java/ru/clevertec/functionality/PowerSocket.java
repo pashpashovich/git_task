@@ -4,6 +4,7 @@ import ru.clevertec.exceptions.PowerException;
 import ru.clevertec.models.ElectricalAppliance;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class PowerSocket implements P_Socket {
     public static ArrayList<ElectricalAppliance> appliances;
@@ -18,8 +19,8 @@ public class PowerSocket implements P_Socket {
     {
         if (appliances.isEmpty()) System.out.println("Нет приборов, включённых в сеть");
         else {
-            for (int i = 0; i < appliances.size(); i++) {
-                System.out.println((i + 1) + "." + appliances.get(i));
+            for (int i = 1; i <= appliances.size(); i++) {
+                System.out.println(i + "." + appliances.get(i-1));
             }
         }
     }
@@ -60,7 +61,7 @@ public class PowerSocket implements P_Socket {
         return sortedAppliances;
     }
 
-    public ArrayList<ElectricalAppliance> findApplianceByPowerRange(int minPower, int maxPower) {
+    public Optional<ArrayList<ElectricalAppliance>> findApplianceByPowerRange(int minPower, int maxPower) {
         ArrayList<ElectricalAppliance> powers=new ArrayList<>();
         for (ElectricalAppliance appliance : appliances) {
             double power = appliance.getPower();
@@ -68,7 +69,7 @@ public class PowerSocket implements P_Socket {
                 powers.add(appliance);
             }
         }
-        if(powers.isEmpty()) return null;
-        else return powers;
+        if(powers.isEmpty()) return Optional.empty();
+        else return Optional.of(powers);
     }
 }
